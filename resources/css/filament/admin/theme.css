@@ -1,0 +1,71 @@
+@import '../../app.css';
+
+:root {
+    --color-primary-50: #f8f5f0;
+    --color-primary-100: #f0ebe0;
+    --color-primary-200: #e1d6c0;
+    --color-primary-300: #d1c0ab;
+    --color-primary-400: #b9a385;
+    --color-primary-500: #9e8867;
+    --color-primary-600: #856f52;
+    --color-primary-700: #6b4c34;
+    --color-primary-800: #57401f;
+    --color-primary-900: #422c15;
+}
+
+/* Override layout dan background */
+body {
+    background-color: var(--color-primary-50) !important;
+}
+
+/* Sembunyikan footer Filament */
+.fi-simple-footer {
+    display: none !important;
+}
+
+/* Style container form login */
+.fi-simple-card {
+    background-color: var(--color-primary-50) !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* Style tombol login */
+.fi-btn-custom, 
+.fi-btn.fi-btn-primary,
+button[type="submit"] {
+    background-color: var(--color-primary-700) !important;
+    color: white !important;
+    font-weight: 500 !important;
+}
+
+.fi-btn-custom:hover,
+.fi-btn.fi-btn-primary:hover,
+button[type="submit"]:hover {
+    background-color: var(--color-primary-800) !important;
+}
+
+/* Style label dan input */
+.fi-form-component-label,
+.fi-input-label {
+    color: var(--color-primary-900) !important;
+    font-weight: 500 !important;
+}
+
+.fi-input,
+.fi-input-wrapper {
+    background-color: var(--color-primary-50) !important;
+    border-color: var(--color-primary-200) !important;
+}
+
+/* Hapus header default "Sign in" */
+h1:contains("Sign in") {
+    display: none !important;
+}
+
+/* Ukuran container */
+.fi-simple-main {
+    width: 100% !important;
+    max-width: 28rem !important; /* 448px ~ md */
+    padding: 2rem !important;
+}
