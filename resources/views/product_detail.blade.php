@@ -27,11 +27,10 @@
                             </div>
                         </div>
                         <div class="col-lg-7">
-                            <h4 class="fw-bold mb-3">Brocoli</h4>
-                            <p class="mb-3">Kategori: Vegetables</p>
-                            <h5 class="fw-bold mb-3">Rp.150.000 / Kg</h5>
-                            <p class="mb-4">The generated Lorem Ipsum is therefore always free from repetition injected
-                                humour, or non-characteristic words etc.</p>
+                            <h4 class="fw-bold mb-3">Tikar Alibaba</h4>
+                            <p class="mb-3">Kategori: Tikar Warna Merah</p>
+                            <h5 class="fw-bold mb-3">Rp.70.000</h5>
+                            <p class="mb-4">The generated Lorem Ipsum </p>
                             <p class="mb-4">Susp endisse ultricies nisi vel quam suscipit. Sabertooth peacock flounder;
                                 chain pickerel hatchetfish, pencilfish snailfish</p>
                             <a href="#" class="btn border border-secondary rounded-pill px-4 py-2 mb-4 text-primary"><i
