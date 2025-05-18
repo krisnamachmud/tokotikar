@@ -3,7 +3,7 @@
 @section('content')
   
     <!-- Hero Start -->
-     <link rel="stylesheet" href="./frontend/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="./frontend/css/style.css" rel="stylesheet">
     <div class="container-fluid py-5 mb-5 mt-5">
         <div class="container py-5">
             <div class="row g-5 align-items-center">
@@ -18,7 +18,7 @@
                             <div class="carousel-item @if($loop->iteration == 1)active @endif rounded">
                                 <img src="{{ Storage::url($category->gambar) }}" class="img-fluid w-100 h-100 bg-secondary rounded"
                                     alt="First slide">
-                                <a href="#" class="btn px-4 py-2 text-white rounded">{{ $category->judul }}</a>
+                                <a href="{{ route('products.category', $category->id) }}" class="btn px-4 py-2 text-white rounded">{{ $category->judul }}</a>
                             </div> 
                            
                             @endforeach
@@ -39,7 +39,6 @@
         </div>
     </div>
     <!-- Hero End -->
-
 
     <!-- Featurs Section Start -->
     <div class="container-fluid featurs py-5">
@@ -73,6 +72,7 @@
                             <i class="fas fa-exchange-alt fa-3x text-white"></i>
                         </div>
                         <div class="featurs-content text-center">
+                            <h5>Jaminan Pengembalian</h5>
                             <p class="mb-0">Jaminan pengembalian 30 hari</p>
                         </div>
                     </div>
@@ -102,7 +102,7 @@
                         <h1 class="display-3 text-white">Promo Terbaik Bulan Ini</h1>
                         <p class="mb-4 text-dark">Dapatkan tikar Lamongan dengan berbagai corak dan ukuran dengan harga spesial.
                         </p>
-                        <a href="#" class="banner-btn btn border-2 border-white rounded-pill text-dark py-3 px-5">Beli
+                        <a href="{{ route('products.index') }}" class="banner-btn btn border-2 border-white rounded-pill text-dark py-3 px-5">Beli
                             Sekarang</a>
                     </div>
                 </div>
@@ -138,9 +138,9 @@
                     <div class="text-center">
                         <img src="img/tikar-item-1.jpg" class="img-fluid rounded" alt="">
                         <div class="py-4">
-                            <a href="shop-detail.html" class="h5">Tikar Motif Merek Alibaba</a>
+                            <a href="{{ route('products.show', 1) }}" class="h5">Tikar Motif Merek Alibaba</a>
                             <h4 class="mb-3 mt-2">Rp 70.000</h4>
-                            <a href="shop-detail.html"
+                            <a href="{{ route('products.show', 1) }}"
                                 class="btn border border-secondary rounded-pill px-3 text-primary"><i
                                     class="fa fa-eye me-2 text-primary"></i> Detail</a>
                         </div>
@@ -150,9 +150,9 @@
                     <div class="text-center">
                         <img src="img/tikar-item-2.jpg" class="img-fluid rounded" alt="">
                         <div class="py-4">
-                            <a href="shop-detail.html" class="h5">Tikar Motif Merek Angsa</a>
+                            <a href="{{ route('products.show', 2) }}" class="h5">Tikar Motif Merek Angsa</a>
                             <h4 class="mb-3 mt-2">Rp 90.000</h4>
-                            <a href="shop-detail.html"
+                            <a href="{{ route('products.show', 2) }}"
                                 class="btn border border-secondary rounded-pill px-3 text-primary"><i
                                     class="fa fa-eye me-2 text-primary"></i> Detail</a>
                         </div>
@@ -162,9 +162,9 @@
                     <div class="text-center">
                         <img src="img/tikar-item-3.jpg" class="img-fluid rounded" alt="">
                         <div class="py-4">
-                            <a href="shop-detail.html" class="h5">Tikar Merek Anugrah</a>
+                            <a href="{{ route('products.show', 3) }}" class="h5">Tikar Merek Anugrah</a>
                             <h4 class="mb-3 mt-2">Rp 70.000</h4>
-                            <a href="shop-detail.html"
+                            <a href="{{ route('products.show', 3) }}"
                                 class="btn border border-secondary rounded-pill px-3 text-primary"><i
                                     class="fa fa-eye me-2 text-primary"></i> Detail</a>
                         </div>
@@ -174,9 +174,9 @@
                     <div class="text-center">
                         <img src="img/tikar-item-4.jpg" class="img-fluid rounded" alt="">
                         <div class="py-2">
-                            <a href="shop-detail.html" class="h5">Tikar Motif Merek Elresas</a>
+                            <a href="{{ route('products.show', 4) }}" class="h5">Tikar Motif Merek Elresas</a>
                             <h4 class="mb-3 mt-2">Rp 85.000</h4>
-                            <a href="shop-detail.html"
+                            <a href="{{ route('products.show', 4) }}"
                                 class="btn border border-secondary rounded-pill px-3 text-primary"><i
                                     class="fa fa-eye me-2 text-primary"></i> Detail</a>
                         </div>
@@ -187,81 +187,77 @@
     </div>
     <!-- Bestsaler Product End -->
 
-    <!-- Tastimonial Start -->
-    <div class="container-fluid testimonial py-5">
+    <!-- Testimonial Form Section Start -->
+    <div class="container-fluid testimonial-form py-5 bg-light">
         <div class="container py-5">
-            <div class="testimonial-header text-center">
-                <h4 class="text-primary">Testimonial</h4>
-                <h1 class="display-5 mb-5 text-dark">Apa Yang Klien Kami Katakan</h1>
-            </div>
-            <div class="owl-carousel testimonial-carousel">
-                <div class="testimonial-item img-border-radius bg-light rounded p-4">
-                    <div class="position-relative">
-                        <i class="fa fa-quote-right fa-2x text-secondary position-absolute"
-                            style="bottom: 30px; right: 0;"></i>
-                        <div class="mb-4 pb-4 border-bottom border-secondary">
-                            <p class="mb-0">
-                                Tikar Lamongan sangat nyaman digunakan dan tahan lama. Motifnya juga indah sekali.
-                            </p>
-                        </div>
-                        <div class="d-flex align-items-center flex-nowrap">
-                            <div class="bg-secondary rounded">
-                                <img src="img/testimonial-1.jpg" class="img-fluid rounded"
-                                    style="width: 100px; height: 100px;" alt="">
-                            </div>
-                            <div class="ms-4 d-block">
-                                <h4 class="text-dark">Budiman</h4>
-                                <p class="m-0 pb-3">Pengusaha</p>
-                            </div>
-                        </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="text-center mb-5">
+                        <h4 class="text-primary">Tambah Testimonial</h4>
+                        <h1 class="display-5 mb-4">Bagikan Pengalaman Anda</h1>
                     </div>
-                </div>
-                <div class="testimonial-item img-border-radius bg-light rounded p-4">
-                    <div class="position-relative">
-                        <i class="fa fa-quote-right fa-2x text-secondary position-absolute"
-                            style="bottom: 30px; right: 0;"></i>
-                        <div class="mb-4 pb-4 border-bottom border-secondary">
-                            <p class="mb-0">
-                                Pengiriman cepat dan tikarnya berkualitas tinggi. Saya sangat puas dengan pembelian ini.
-                            </p>
+                    
+                    @if(session('success'))
+                        <div class="alert alert-success text-center mb-4">
+                            {{ session('success') }}
                         </div>
-                        <div class="d-flex align-items-center flex-nowrap">
-                            <div class="bg-secondary rounded">
-                                <img src="img/testimonial-2.jpg" class="img-fluid rounded"
-                                    style="width: 100px; height: 100px;" alt="">
+                    @endif
+
+                    <div class="bg-white rounded p-4 p-sm-5 shadow-sm">
+                        <form action="{{ route('testimonials.store') }}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control @error('nama') is-invalid @enderror" id="nama" name="nama" placeholder="Nama Lengkap" value="{{ old('nama') }}" required>
+                                        <label for="nama">Nama Lengkap</label>
+                                        @error('nama')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control @error('pekerjaan') is-invalid @enderror" id="pekerjaan" name="pekerjaan" placeholder="Pekerjaan" value="{{ old('pekerjaan') }}">
+                                        <label for="pekerjaan">Pekerjaan</label>
+                                        @error('pekerjaan')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
+                                
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <textarea class="form-control @error('pesan') is-invalid @enderror" id="pesan" name="pesan" placeholder="Testimonial Anda" style="height: 150px" required>{{ old('pesan') }}</textarea>
+                                        <label for="pesan">Testimonial Anda</label>
+                                        @error('pesan')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
+                                
+                                <div class="col-12">
+                                    <div class="mb-3">
+                                        <label for="photo" class="form-label">Foto Profil</label>
+                                        <input class="form-control @error('photo') is-invalid @enderror" type="file" id="photo" name="photo" accept="image/*" required>
+                                        <small class="text-muted">Format: JPG, PNG. Ukuran maks: 2MB</small>
+                                        @error('photo')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
+                                
+                                <div class="col-12 text-center">
+                                    <button class="btn btn-primary rounded-pill py-3 px-5" type="submit">Kirim Testimonial</button>
+                                </div>
                             </div>
-                            <div class="ms-4 d-block">
-                                <h4 class="text-dark">Sunarti</h4>
-                                <p class="m-0 pb-3">Ibu Rumah Tangga</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-item img-border-radius bg-light rounded p-4">
-                    <div class="position-relative">
-                        <i class="fa fa-quote-right fa-2x text-secondary position-absolute"
-                            style="bottom: 30px; right: 0;"></i>
-                        <div class="mb-4 pb-4 border-bottom border-secondary">
-                            <p class="mb-0">
-                                Saya suka sekali dengan tikar khas Lamongan ini. Bagus untuk dekorasi dan nyaman dipakai.
-                            </p>
-                        </div>
-                        <div class="d-flex align-items-center flex-nowrap">
-                            <div class="bg-secondary rounded">
-                                <img src="img/testimonial-3.jpg" class="img-fluid rounded"
-                                    style="width: 100px; height: 100px;" alt="">
-                            </div>
-                            <div class="ms-4 d-block">
-                                <h4 class="text-dark">Haryanto</h4>
-                                <p class="m-0 pb-3">Guru</p>
-                            </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Tastimonial End -->
-    
+    <!-- Testimonial Form Section End -->
     
 @endsection

@@ -312,6 +312,9 @@
 
 
 /*** Fruits Start ***/
+/* Tikar Shop Styling */
+
+/* Keep the existing fruite class styles for compatibility */
 .fruite .tab-class .nav-item a.active {
     background: var(--bs-secondary) !important;
 }
@@ -336,6 +339,7 @@
     height: 100%;
     transition: 0.5s;
 }
+
 .fruite .fruite-item:hover {
     box-shadow: 0 0 55px rgba(0, 0, 0, 0.4);
 }
@@ -344,6 +348,7 @@
     overflow: hidden;
     transition: 0.5s;
     border-radius: 10px 10px 0 0;
+    position: relative;
 }
 
 .fruite .fruite-item .fruite-img img {
@@ -352,6 +357,216 @@
 
 .fruite .fruite-item .fruite-img img:hover {
     transform: scale(1.3);
+}
+
+/* Tikar design overlay for product items */
+.fruite .fruite-item .fruite-img::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 10px 10px 0 0;
+    background-image: 
+        linear-gradient(45deg, transparent 0%, transparent 25%, 
+                        rgba(150, 111, 51, 0.15) 25%, rgba(150, 111, 51, 0.15) 50%, 
+                        transparent 50%, transparent 75%, 
+                        rgba(150, 111, 51, 0.15) 75%, rgba(150, 111, 51, 0.15) 100%),
+        linear-gradient(-45deg, transparent 0%, transparent 25%, 
+                        rgba(150, 111, 51, 0.15) 25%, rgba(150, 111, 51, 0.15) 50%, 
+                        transparent 50%, transparent 75%, 
+                        rgba(150, 111, 51, 0.15) 75%, rgba(150, 111, 51, 0.15) 100%);
+    background-size: 20px 20px;
+    z-index: 2;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+.fruite .fruite-item:hover .fruite-img::after {
+    opacity: 1;
+}
+
+/* Modify the category icons to reflect tikar visual */
+.fruite-categorie .fruite-name a i.fas.fa-apple-alt {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+    background-color: #e9c46a; /* Light brown color */
+    position: relative;
+    border-radius: 0;
+}
+
+.fruite-categorie .fruite-name a i.fas.fa-apple-alt::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        linear-gradient(90deg, transparent 4px, #8a5a44 4px, #8a5a44 5px, transparent 5px),
+        linear-gradient(0deg, transparent 4px, #8a5a44 4px, #8a5a44 5px, transparent 5px);
+    background-size: 8px 8px;
+}
+
+/* Tikar logo for branding */
+.tikar-logo-header {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    margin-right: 15px;
+    vertical-align: middle;
+    position: relative;
+    background-color: #f8dfad;
+    border: 2px solid #8a5a44;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.tikar-logo-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        linear-gradient(90deg, transparent 3px, #8a5a44 3px, #8a5a44 4px, transparent 4px),
+        linear-gradient(0deg, transparent 3px, #8a5a44 3px, #8a5a44 4px, transparent 4px);
+    background-size: 12px 12px;
+    z-index: 1;
+}
+
+.tikar-logo-header::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        linear-gradient(45deg, transparent 0%, transparent 25%, 
+                        rgba(150, 111, 51, 0.15) 25%, rgba(150, 111, 51, 0.15) 50%, 
+                        transparent 50%, transparent 75%, 
+                        rgba(150, 111, 51, 0.15) 75%, rgba(150, 111, 51, 0.15) 100%);
+    background-size: 10px 10px;
+    z-index: 2;
+}
+
+/* Badge styling */
+.text-white.bg-secondary.px-3.py-1.rounded.position-absolute {
+    z-index: 10;
+}
+
+/* Banner styling */
+.position-relative img.img-fluid.w-100.rounded + .position-absolute h3.text-secondary {
+    position: relative;
+    display: inline-block;
+}
+
+.position-relative img.img-fluid.w-100.rounded + .position-absolute h3.text-secondary::before {
+    content: '';
+    position: absolute;
+    left: -10px;
+    top: -10px;
+    width: 30px;
+    height: 30px;
+    background-color: rgba(233, 196, 106, 0.7); /* Light brown color */
+    z-index: -1;
+    border-radius: 5px;
+}
+
+.position-relative img.img-fluid.w-100.rounded + .position-absolute h3.text-secondary::after {
+    content: '';
+    position: absolute;
+    left: -5px;
+    top: -5px;
+    width: 20px;
+    height: 20px;
+    background-image: 
+        linear-gradient(90deg, transparent 2px, #8a5a44 2px, #8a5a44 3px, transparent 3px),
+        linear-gradient(0deg, transparent 2px, #8a5a44 2px, #8a5a44 3px, transparent 3px);
+    background-size: 6px 6px;
+    z-index: -1;
+}
+
+/* Custom styling for page header */
+.page-header {
+    position: relative;
+}
+
+.page-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        linear-gradient(45deg, transparent 0%, transparent 25%, 
+                        rgba(150, 111, 51, 0.10) 25%, rgba(150, 111, 51, 0.10) 50%, 
+                        transparent 50%, transparent 75%, 
+                        rgba(150, 111, 51, 0.10) 75%, rgba(150, 111, 51, 0.10) 100%);
+    background-size: 30px 30px;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Standalone Tikar Logo for use in various places */
+.tikar-logo {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 20px;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    border: 3px solid #8a5a44;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.tikar-horizontal {
+    grid-column: 1 / -1;
+    grid-row: span 1;
+    background-color: #e9c46a;
+    z-index: 1;
+}
+
+.tikar-vertical {
+    grid-column: span 1;
+    grid-row: 1 / -1;
+    background-color: #8a5a44;
+    z-index: 2;
+}
+
+/* Alternate z-index for weaving effect */
+.tikar-horizontal:nth-child(odd) { z-index: 3; }
+.tikar-vertical:nth-child(even) { z-index: 0; }
+
+/* Class to add before h1.mb-4 in your HTML */
+h1.mb-4.tikar-title {
+    display: flex;
+    align-items: center;
+}
+
+h1.mb-4.tikar-title::before {
+    content: '';
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    margin-right: 15px;
+    background-color: #f8dfad;
+    position: relative;
+    border: 2px solid #8a5a44;
+    border-radius: 5px;
+    background-image: 
+        linear-gradient(90deg, transparent 2px, #8a5a44 2px, #8a5a44 3px, transparent 3px),
+        linear-gradient(0deg, transparent 2px, #8a5a44 2px, #8a5a44 3px, transparent 3px);
+    background-size: 10px 10px;
 }
 /*** Fruits End ***/
 
@@ -482,6 +697,20 @@
 .testimonial .owl-nav .owl-next:hover {
     background: var(--bs-secondary);
     color: var(--bs-white);
+}
+
+.testimonial-item {
+    box-shadow: 0 0 45px rgba(0, 0, 0, .07);
+    transition: .5s;
+}
+
+.testimonial-item:hover {
+    transform: translateY(-10px);
+}
+
+.testimonial-item img {
+    border: 4px solid #fff;
+    box-shadow: 0 0 45px rgba(0, 0, 0, .1);
 }
 /*** testimonial End ***/
 

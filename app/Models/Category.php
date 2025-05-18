@@ -9,7 +9,8 @@ class Category extends Model
 {
     use HasFactory;
     
-    // Atribut yang TIDAK boleh di-mass assign
+    // You can use either $guarded or $fillable, but not both for the same fields
+    // Since you want to protect id, and fill the rest, let's use $guarded
     protected $guarded = ['id'];
     
     // Gunakan slug sebagai parameter URL alih-alih ID

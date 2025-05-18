@@ -2,19 +2,28 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
     public function index()
     {
-        return view('product');
+        $products = Product::all();
+        return view('product', compact('products'));
     }
     
-    public function show($slug)
+    public function show($id)
     {
-        // Here you can use the $slug parameter to fetch the specific product
-        // For now, we're just passing it to the view
-        return view('product_detail', ['slug' => $slug]);
+        $product = Product::findOrFail($id);
+        return view('shop-detail', compact('product'));
+    }
+    
+    public function byCategory($id)
+    {
+        $category = Category::findOrFail($id);
+        $products = Product::where('category_id', $id)->get();
+        return view('product', compact('products', 'category'));
     }
 }

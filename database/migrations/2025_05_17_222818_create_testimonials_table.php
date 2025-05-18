@@ -11,15 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        if (!Schema::hasTable('testimonials')) {
-            Schema::create('testimonials', function (Blueprint $table) {
-                $table->id();
-                $table->string('nama');
-                $table->string('pekerjaan');
-                $table->text('pesan');
-                $table->timestamps();
-            });
-        }
+        Schema::create('testimonials', function (Blueprint $table) {
+            $table->id();
+            $table->string('nama');
+            $table->string('pekerjaan')->nullable();
+            $table->text('pesan');
+            $table->string('photo');
+            $table->boolean('is_active')->default(false);
+            $table->timestamps();
+        });
     }
 
     /**

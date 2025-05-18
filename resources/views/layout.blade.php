@@ -46,7 +46,7 @@
                 <div class="collapse navbar-collapse bg-white" id="navbarCollapse">
                     <div class="navbar-nav ms-auto">
                         <a href="index.html" class="nav-item nav-link active">Home</a>
-                        <a href="shop.html" class="nav-item nav-link">Produk</a>
+                        <a href="views/livewire/product.blade.php" class="nav-item nav-link">Produk</a>
                         <a href="contact.html" class="nav-item nav-link">Kontak Kami</a>
                     </div>
                 </div>
@@ -91,8 +91,7 @@
             <div class="row">
                 <div class="col-md-12 text-center text-center mx-auto mb-3 mb-md-0">
                     <span class="text-light text-center mx-auto"><a href="#"><i
-                                class="fas fa-copyright text-light text-center mx-auto me-2"></i>Your Site
-                            Name</a>, All right reserved.</span>
+                                class="fas fa-copyright text-light text-center mx-auto me-2"></i>Tikar Lamongan</a>, Terima Kasih.</span>
                 </div>
             </div>
         </div>
