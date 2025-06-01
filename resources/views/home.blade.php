@@ -108,7 +108,7 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="position-relative">
-                        <img src="img/tikar-promo.png" class="img-fluid w-100 rounded" alt="">
+                        <img src="{{ asset('images/tikaralibaba1.png') }}" class="img-fluid w-100 rounded" alt="">
                         <div class="price-badge position-absolute">
                             <div class="d-flex align-items-center">
                                 <!-- <span class="discount-text me-2">100</span> -->
@@ -134,54 +134,72 @@
                 <p>Berbagai pilihan tikar khas Lamongan dengan kualitas terbaik.</p>
             </div>
             <div class="row g-4">
-                <div class="col-md-6 col-lg-6 col-xl-3">
-                    <div class="text-center">
-                        <img src="img/tikar-item-1.jpg" class="img-fluid rounded" alt="">
-                        <div class="py-4">
-                            <a href="{{ route('products.show', 1) }}" class="h5">Tikar Motif Merek Alibaba</a>
-                            <h4 class="mb-3 mt-2">Rp 70.000</h4>
-                            <a href="{{ route('products.show', 1) }}"
-                                class="btn border border-secondary rounded-pill px-3 text-primary"><i
-                                    class="fa fa-eye me-2 text-primary"></i> Detail</a>
+                @if(isset($products) && $products->count() > 0)
+                    @foreach($products->take(4) as $product)
+                    <div class="col-md-6 col-lg-6 col-xl-3">
+                        <div class="text-center">
+                            <img src="{{ $product->gambar ? Storage::url($product->gambar) : asset('img/tikar-default.jpg') }}" class="img-fluid rounded" alt="{{ $product->nama }}">
+                            <div class="py-4">
+                                <a href="{{ route('products.show', $product->id) }}" class="h5">{{ $product->nama }}</a>
+                                <h4 class="mb-3 mt-2">Rp {{ number_format($product->harga, 0, ',', '.') }}</h4>
+                                <a href="{{ route('products.show', $product->id) }}"
+                                    class="btn border border-secondary rounded-pill px-3 text-primary"><i
+                                        class="fa fa-eye me-2 text-primary"></i> Detail</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-6 col-lg-6 col-xl-3">
-                    <div class="text-center">
-                        <img src="img/tikar-item-2.jpg" class="img-fluid rounded" alt="">
-                        <div class="py-4">
-                            <a href="{{ route('products.show', 2) }}" class="h5">Tikar Motif Merek Angsa</a>
-                            <h4 class="mb-3 mt-2">Rp 90.000</h4>
-                            <a href="{{ route('products.show', 2) }}"
-                                class="btn border border-secondary rounded-pill px-3 text-primary"><i
-                                    class="fa fa-eye me-2 text-primary"></i> Detail</a>
+                    @endforeach
+                @else
+                    <!-- Static fallback products if no data from database -->
+                    <div class="col-md-6 col-lg-6 col-xl-3">
+                        <div class="text-center">
+                            <img src="{{ asset('images/tikaralibaba.jpg') }}" class="img-fluid rounded" alt="">
+                            <div class="py-4">
+                                <a href="{{ route('products.show', 1) }}" class="h5">Tikar Motif Merek Alibaba</a>
+                                <h4 class="mb-3 mt-2">Rp 70.000</h4>
+                                <a href="{{ route('products.show', 1) }}"
+                                    class="btn border border-secondary rounded-pill px-3 text-primary"><i
+                                        class="fa fa-eye me-2 text-primary"></i> Detail</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-6 col-lg-6 col-xl-3">
-                    <div class="text-center">
-                        <img src="img/tikar-item-3.jpg" class="img-fluid rounded" alt="">
-                        <div class="py-4">
-                            <a href="{{ route('products.show', 3) }}" class="h5">Tikar Merek Anugrah</a>
-                            <h4 class="mb-3 mt-2">Rp 70.000</h4>
-                            <a href="{{ route('products.show', 3) }}"
-                                class="btn border border-secondary rounded-pill px-3 text-primary"><i
-                                    class="fa fa-eye me-2 text-primary"></i> Detail</a>
+                    <div class="col-md-6 col-lg-6 col-xl-3">
+                        <div class="text-center">
+                            <img src="{{ asset('images/tikarangsa.jpg') }}" class="img-fluid rounded" alt="">
+                            <div class="py-4">
+                                <a href="{{ route('products.show', 2) }}" class="h5">Tikar Motif Merek Angsa</a>
+                                <h4 class="mb-3 mt-2">Rp 90.000</h4>
+                                <a href="{{ route('products.show', 2) }}"
+                                    class="btn border border-secondary rounded-pill px-3 text-primary"><i
+                                        class="fa fa-eye me-2 text-primary"></i> Detail</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-6 col-lg-6 col-xl-3">
-                    <div class="text-center">
-                        <img src="img/tikar-item-4.jpg" class="img-fluid rounded" alt="">
-                        <div class="py-2">
-                            <a href="{{ route('products.show', 4) }}" class="h5">Tikar Motif Merek Elresas</a>
-                            <h4 class="mb-3 mt-2">Rp 85.000</h4>
-                            <a href="{{ route('products.show', 4) }}"
-                                class="btn border border-secondary rounded-pill px-3 text-primary"><i
-                                    class="fa fa-eye me-2 text-primary"></i> Detail</a>
+                    <div class="col-md-6 col-lg-6 col-xl-3">
+                        <div class="text-center">
+                            <img src="{{ asset('images/tikaranugrah.jpg') }}" class="img-fluid rounded" alt="">
+                            <div class="py-4">
+                                <a href="{{ route('products.show', 3) }}" class="h5">Tikar Merek Anugrah</a>
+                                <h4 class="mb-3 mt-2">Rp 70.000</h4>
+                                <a href="{{ route('products.show', 3) }}"
+                                    class="btn border border-secondary rounded-pill px-3 text-primary"><i
+                                        class="fa fa-eye me-2 text-primary"></i> Detail</a>
+                            </div>
                         </div>
                     </div>
-                </div>
+                    <div class="col-md-6 col-lg-6 col-xl-3">
+                        <div class="text-center">
+                            <img src="{{ asset('images/tikarelresas.jpg') }}" class="img-fluid rounded" alt="">
+                            <div class="py-2">
+                                <a href="{{ route('products.show', 4) }}" class="h5">Tikar Motif Merek Elresas</a>
+                                <h4 class="mb-3 mt-2">Rp 85.000</h4>
+                                <a href="{{ route('products.show', 4) }}"
+                                    class="btn border border-secondary rounded-pill px-3 text-primary"><i
+                                        class="fa fa-eye me-2 text-primary"></i> Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                @endif
             </div>
         </div>
     </div>

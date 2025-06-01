@@ -4,24 +4,21 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Category;
-use App\Models\Testimonial;
-use App\Models\Promotion;  
 use App\Models\Product;
 
 class HomeController extends Controller
 {
     public function index()
     {
-        $categories = Category::get();
-        // Removed is_active filter since the column doesn't exist
-        $testimonials = Testimonial::latest()
-            ->take(5)
-            ->get();
-        $products = Product::get();
+        // Get categories for carousel
+        $categories = Category::all();
         
-        return view('home', compact('categories', 'testimonials', 'products'));
+        // Get products for featured section (limit to 4)
+        $products = Product::take(4)->get();
+        
+        return view('home', compact('categories', 'products',));
     }
-
+    
     public function contact()
     {
         return view('contact');
